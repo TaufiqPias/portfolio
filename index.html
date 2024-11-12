@@ -24,16 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <script type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-    (function(){
-        emailjs.init({
-          publicKey: "C5x7Kj7eP7wJiYV_v",
-        });
-    })();
-    </script>
+      
 </head>
 
 <body>
@@ -1416,13 +1407,36 @@
             </button>
 
           </form>
-
+          
           <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+          </script>
 
           <script type="text/javascript">
-            emailjs.init('C5x7Kj7eP7wJiYV_v')
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init({
+                  publicKey: "C5x7Kj7eP7wJiYV_v",
+                });
+            })();
           </script>
+
+          <script type="text/javascript">
+              window.onload = function() {
+                document.getElementById('form').addEventListener('submit', function(event) {
+                  event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_dkk2v7h', 'template_w3tn3ld', this)
+              .then(() => {
+                  console.log('SUCCESS!');
+              }, (error) => {
+                  console.log('FAILED...', error);
+              });
+          });
+        }
+            </script>
+
+          
 
         </section>
 

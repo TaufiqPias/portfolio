@@ -324,24 +324,17 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-// send email using Emailjs
-const button = document.getElementById('button');
 
-document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
+document.getElementById("form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-   btn.value = 'Sending...';
-
-   const serviceID = 'service_dkk2v7h';
-   const templateID = 'template_w3tn3ld';
-
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Send Message';
-      alert('Sent!');
-    }, (err) => {
-      btn.value = 'Send Message';
-      alert(JSON.stringify(err));
-    });
+  // Clear the form and message after 2 seconds
+  setTimeout(() => {
+    form.reset();
+    messageDiv.textContent = "";
+  }, 1000);
 });
+
+
+
+
